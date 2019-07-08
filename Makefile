@@ -129,7 +129,7 @@ $(ODIR)/$(JANSSON): deps/$(JANSSON).tar.gz | $(ODIR)
 $(ODIR)/lib/libcurl.a: $(ODIR)/$(CURL)
 	@echo Building curl...
 ifeq ($(TARGET), darwin)
-	@$(SHELL) -c "cd $< && ./Configure darwin64-x86_64-cc"
+	@$(SHELL) -c "cd $< && ./Configure --prefix=$(abspath $(ODIR))"
 else
 	@$(SHELL) -c "cd $< && ./configure --prefix=$(abspath $(ODIR))"
 endif
@@ -138,12 +138,12 @@ endif
 $(ODIR)/lib/libjansson.a: $(ODIR)/$(JANSSON)
 	@echo Building Jansson...
 ifeq ($(TARGET), darwin)
-	@$(SHELL) -c "cd $< && ./Configure darwin64-x86_64-cc"
+	@$(SHELL) -c "cd $< && ./Configure --prefix=$(abspath $(ODIR))"
 else
 	@$(SHELL) -c "cd $< && ./configure --prefix=$(abspath $(ODIR))"
 endif
 	@$(MAKE) -C $< BUILDMODE=static install
-	@cd $(ODIR)/lib && rm libjansson*.so
+	# @cd $(ODIR)/lib && rm libjansson*.so
 
 $(ODIR)/lib/libluajit-5.1.a: $(ODIR)/$(LUAJIT)
 	@echo Building LuaJIT...

@@ -150,7 +150,7 @@ static void decide_thread_num(struct config *cfg) {
     if (cfg->connections < 500)
         cfg->threads = 1;
     else {
-        int cpu_num = get_nprocs();
+        int cpu_num = 2;
         cfg->threads = cfg->connections/500 < cpu_num ? cfg->connections/500 : cpu_num;
     }
 }

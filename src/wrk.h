@@ -23,7 +23,7 @@
 #include <inttypes.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <sys/sysinfo.h>
+// #include <sys/sysinfo.h>
 #include <netdb.h>
 #include <sys/socket.h>
 

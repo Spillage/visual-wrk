@@ -1,0 +1,9 @@
+curl -XPOST -H'content-type:application/json' http://localhost:8080/addtestplan -d'{"connNum":1,"host":"http://baidu.com","elapse":300,"script": {"path": "","method": "GET"}}'
+
+
+curl -XPOST -H'content-type:application/json' http://10.211.55.4:8080/input -d'{"script":{"path":"/nc/v1/tile/qvf", "method":"POST", "body":"11111", "numarea":"100,200"},"testPlanId":11,"threadNum":1,"connNum":1,"elapse":300,"host":"http://baidu.com"}'
+
+
+curl -XPOST -H'content-type:application/json' http://localhost:8080/reportupload -d'{"testPlanId":11,"report":"XXXholic"}'
+
+curl -XPOST -H'content-type:application/json' http://localhost:8080/sendtestplan -d'{"agent":"localhost:8081","testPlanId":13,"elapse":60,"connNum":1,"threadNum":1,"creator":"xielu","script":{"path":"/","method":"GET","host":"http://baidu.com"}}'
